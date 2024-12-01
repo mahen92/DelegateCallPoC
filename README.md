@@ -1,3 +1,16 @@
+The PoC is used to check the behaviour of delegate call with the below conditions:
+
+1. msg.sender,address(this)
+2. codesize()
+3. Chaining two delegate calls
+4. Chaining delegatecall and call
+
+
+
+
+
+
+
 ## Foundry
 
 **Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
