@@ -16,6 +16,12 @@ contract Caller {
         return abi.decode(data, (address, uint256, address));
     }
 
+    function getDelegatedInformation(address _called) public payable returns (address, uint256, address) {
+        (bool success, bytes memory data) = _called.delegatecall(abi.encodeWithSignature("getInformation()"));
+        (address first, uint256 number, address second) = abi.decode(data, (address, uint256, address));
+        return abi.decode(data, (address, uint256, address));
+    }
+
     function getSizes(address _calledA, address _calledB) public returns (uint256 sizeA, uint256 sizeB) {
         (, bytes memory dataA) = _calledA.delegatecall(abi.encodeWithSignature("getCodeSize()"));
         (, bytes memory dataB) = _calledB.delegatecall(abi.encodeWithSignature("getCodeSize()"));

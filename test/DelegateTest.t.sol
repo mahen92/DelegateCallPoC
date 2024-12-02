@@ -37,6 +37,12 @@ contract DelegateTest is Test {
         vm.stopPrank();
     }
 
+    function test_information() public {
+        vm.startPrank(alice);
+        caller.getDelegatedInformation(address(called));
+        vm.stopPrank();
+    }
+
     /*Checks the value of codesize() during delegatecall*/
     function test_sizes() public {
         vm.startPrank(alice);
